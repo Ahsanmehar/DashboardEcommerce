@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.is-Active {
+  @apply cursor-pointer bg-blue px-[12px] py-[5px] rounded-[10px] flex items-center gap-[15px];
+}
+
+.is-Active-hover {
+  @apply cursor-pointer  hover:bg-hover px-[12px] py-[5px] rounded-[10px] flex items-center gap-[15px];
+}
