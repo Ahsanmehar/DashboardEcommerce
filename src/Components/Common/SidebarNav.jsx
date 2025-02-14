@@ -46,7 +46,7 @@ function SidebarNav() {
           <h4 className="text-[14px] text-text2 font-medium">Products</h4>
           <div className="flex flex-col gap-[10px]">
             <NavLink
-              to={"/j"}
+              to={"/addproduct"}
               className={({ isActive }) =>
                 isActive ? "is-Active" : "is-Active-hover"
               }
@@ -55,7 +55,7 @@ function SidebarNav() {
               <h2 className="text-[15px] font-medium">Add Product</h2>
             </NavLink>
             <NavLink
-              to={"/g"}
+              to={"/productlist"}
               className={({ isActive }) =>
                 isActive ? "is-Active" : "is-Active-hover"
               }

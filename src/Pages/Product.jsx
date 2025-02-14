@@ -1,6 +1,11 @@
+import AddProduct from "../Components/Layout/Product/AddProduct";
+
 function Product() {
-    return <>Product</>;
-  }
-  
-  export default Product;
-  
+  return (
+    <>
+      <AddProduct />
+    </>
+  );
+}
+
+export default Product;

@@ -1,5 +1,11 @@
+import ImageUploader from "../Components/Layout/Product/ImageUploader";
+
 function Blog() {
-  return <>Blog</>;
+  return (
+    <>
+      <ImageUploader />
+    </>
+  );
 }
 
 export default Blog;
