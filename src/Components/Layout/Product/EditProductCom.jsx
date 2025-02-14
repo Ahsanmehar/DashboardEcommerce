@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateproduct } from "../../../ReduxToolkit/ProductSlice";
 
 function EditProductCom() {
-  let dispatch = useState();
-  let editdata = useSelector((state) => state.product.editdata);
-  let editproduct = useSelector((state) => state.product.editProduct);
+  let dispatch = useDispatch();
+  const { editdata } = useSelector((state) => state.product);
+
   let [editImages, setEditImages] = useState([]);
-  let [editProduct, setProduct] = useState({
+  let [Product, setProduct] = useState({
     productName: "",
     category: "",
     gender: "",
@@ -27,15 +27,14 @@ function EditProductCom() {
   }, [editdata]);
 
   function handleChange(e) {
-    setProduct({ ...editProduct, [e.target.name]: e.target.value });
+    setProduct({ ...Product, [e.target.name]: e.target.value });
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(updateproduct(editProduct));
+    dispatch(updateproduct(Product));
   }
 
-  if (!editProduct) return null;
   function handleImage(e) {
     let file = Array.from(e.target.files);
     let imagesurl = file.map((file) => URL.createObjectURL(file));
@@ -50,6 +49,7 @@ function EditProductCom() {
     }));
     setEditImages([...editImages, ...imagesurl]);
   }
+
   return (
     <div className="w-[100%] px-[28px] my-[25px] text-text1">
       <h1 className="text-[28px] font-medium mb-[10px]">Edit Product</h1>
@@ -68,7 +68,7 @@ function EditProductCom() {
                 type="text"
                 placeholder="Enter product name"
                 name="productName"
-                value={editProduct.productName}
+                value={Product.productName}
                 onChange={handleChange}
                 className="w-[100%] h-[50px] bg-transparent border-[1px] border-border px-[15px] rounded-[8px] placeholder:text-[13px] focus:border-blue focus:ring-1 focus:ring-blue outline-none"
                 required
@@ -85,7 +85,7 @@ function EditProductCom() {
                 </h4>
                 <select
                   name="category"
-                  value={editProduct.category}
+                  value={Product.category}
                   onChange={handleChange}
                   className="text-text2 text-[13px] py-[14px] px-[22px] rounded-[8px] border-[1px] border-border bg-transparent focus:outline-none"
                 >
@@ -100,7 +100,7 @@ function EditProductCom() {
                 </h4>
                 <select
                   name="gender"
-                  value={editProduct.gender}
+                  value={Product.gender}
                   onChange={handleChange}
                   className="text-text2 text-[13px] py-[14px] px-[22px] rounded-[8px] border-[1px] border-border bg-transparent focus:outline-none"
                 >
@@ -118,7 +118,7 @@ function EditProductCom() {
               </h4>
               <select
                 name="brand"
-                value={editProduct.brand}
+                value={Product.brand}
                 onChange={handleChange}
                 className="text-text2 text-[13px] w-[100%] py-[14px] px-[22px] rounded-[8px] border-[1px] border-border bg-transparent focus:outline-none"
               >
@@ -135,7 +135,7 @@ function EditProductCom() {
 
               <textarea
                 name="description"
-                value={editProduct.description}
+                value={Product.description}
                 onChange={handleChange}
                 placeholder="Description"
                 rows={10}
@@ -188,7 +188,7 @@ function EditProductCom() {
               <h4 className="text-[14px] font-medium">Add size</h4>
               <select
                 name="size"
-                value={editProduct.size}
+                value={Product.size}
                 onChange={handleChange}
                 className="text-text2 text-[13px] py-[14px] px-[22px] rounded-[8px] border-[1px] border-border bg-transparent focus:outline-none"
               >
@@ -203,7 +203,7 @@ function EditProductCom() {
               <input
                 type="date"
                 name="productDate"
-                value={editProduct.productDate}
+                value={Product.productDate}
                 onChange={handleChange}
                 className="text-text2 text-[13px] py-[14px] px-[22px] rounded-[8px] border-[1px] border-border bg-transparent focus:outline-none"
               />
@@ -216,7 +216,7 @@ function EditProductCom() {
               <input
                 type="number"
                 name="price"
-                value={editProduct.price}
+                value={Product.price}
                 onChange={handleChange}
                 className="text-text2 text-[13px] py-[14px] px-[22px] rounded-[8px] border-[1px] border-border bg-transparent focus:outline-none"
               />
@@ -225,7 +225,7 @@ function EditProductCom() {
               <h4 className="text-[14px] font-medium">Status</h4>
               <select
                 name="status"
-                value={editProduct.status}
+                value={Product.status}
                 onChange={handleChange}
                 className="text-text2 text-[13px] py-[14px] px-[22px] rounded-[8px] border-[1px] border-border bg-transparent focus:outline-none"
               >

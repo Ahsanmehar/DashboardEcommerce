@@ -63,14 +63,29 @@ function SidebarNav() {
               <i className="bi bi-bag-check text-[21px]"></i>
               <h2 className="text-[15px] font-medium">Product list</h2>
             </NavLink>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-[10px]">
+          <h4 className="text-[14px] text-text2 font-medium">Blog</h4>
+          <div className="flex flex-col gap-[10px]">
             <NavLink
-              to={"/blog"}
+              to={"/addblog"}
+              className={({ isActive }) =>
+                isActive ? "is-Active" : "is-Active-hover"
+              }
+            >
+              <i className="bi bi-book text-[21px]"></i>
+              <h2 className="text-[15px] font-medium">Add Blog</h2>
+            </NavLink>
+            <NavLink
+              to={"/bloglist"}
               className={({ isActive }) =>
                 isActive ? "is-Active" : "is-Active-hover"
               }
             >
               <i className="bi bi-book-half text-[21px]"></i>
-              <h2 className="text-[15px] font-medium">Blog</h2>
+              <h2 className="text-[15px] font-medium">Blog list</h2>
             </NavLink>
           </div>
         </div>

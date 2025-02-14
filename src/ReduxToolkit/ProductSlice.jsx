@@ -24,12 +24,13 @@ const ProductSlice = createSlice({
     },
 
     toggleeditproduct: (state, action) => {
-      state.editproduct = !state.editproduct;
+      state.editproduct = true;
       state.editindex = action.payload.index;
-      state.editdata = action.products[action.payload.index];
+      state.editdata = state.products[action.payload.index] || null;
     },
     updateproduct: (state, action) => {
-      state.products[state.index] = { ...action.payload };
+      state.products[state.editindex] = { ...action.payload };
+      localStorage.setItem("products", JSON.stringify(state.products));
       state.editproduct = false;
       state.editindex = null;
       state.editdata = null;
