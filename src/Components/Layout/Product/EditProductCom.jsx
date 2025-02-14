@@ -1,10 +1,13 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addproduct } from "../../../ReduxToolkit/ProductSlice";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { updateproduct } from "../../../ReduxToolkit/ProductSlice";
 
-function AddProduct() {
-  let [images, setImages] = useState([]);
-  let [formData, setFormData] = useState({
+function EditProductCom() {
+  let dispatch = useState();
+  let editdata = useSelector((state) => state.product.editdata);
+  let editproduct = useSelector((state) => state.product.editProduct);
+  let [editImages, setEditImages] = useState([]);
+  let [editProduct, setProduct] = useState({
     productName: "",
     category: "",
     gender: "",
@@ -17,37 +20,39 @@ function AddProduct() {
     image: [],
   });
 
-  let dispatch = useDispatch();
+  useEffect(() => {
+    if (editdata) {
+      setProduct(editdata);
+    }
+  }, [editdata]);
 
   function handleChange(e) {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setProduct({ ...editProduct, [e.target.name]: e.target.value });
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(addproduct(formData));
+    dispatch(updateproduct(editProduct));
   }
 
+  if (!editProduct) return null;
   function handleImage(e) {
-    const file = Array.from(e.target.files);
-    const imagesurl = file.map((file) => URL.createObjectURL(file));
+    let file = Array.from(e.target.files);
+    let imagesurl = file.map((file) => URL.createObjectURL(file));
 
-    if (file.length + images.length > 2) {
+    if (file.length + editImages.length > 2) {
       alert("Maximum 2 images allowed");
       return;
     }
-
-    setFormData((predata) => ({
+    setProduct((predata) => ({
       ...predata,
       image: [...predata.image, ...imagesurl],
     }));
-
-    setImages((preimg) => [...preimg, ...imagesurl]);
+    setEditImages([...editImages, ...imagesurl]);
   }
-
   return (
     <div className="w-[100%] px-[28px] my-[25px] text-text1">
-      <h1 className="text-[28px] font-medium mb-[10px]">Add Product</h1>
+      <h1 className="text-[28px] font-medium mb-[10px]">Edit Product</h1>
 
       <form
         className="w-[100%] h-[80vh] flex justify-between"
@@ -63,7 +68,7 @@ function AddProduct() {
                 type="text"
                 placeholder="Enter product name"
                 name="productName"
-                value={formData.productName}
+                value={editProduct.productName}
                 onChange={handleChange}
                 className="w-[100%] h-[50px] bg-transparent border-[1px] border-border px-[15px] rounded-[8px] placeholder:text-[13px] focus:border-blue focus:ring-1 focus:ring-blue outline-none"
                 required
@@ -80,7 +85,7 @@ function AddProduct() {
                 </h4>
                 <select
                   name="category"
-                  value={formData.category}
+                  value={editProduct.category}
                   onChange={handleChange}
                   className="text-text2 text-[13px] py-[14px] px-[22px] rounded-[8px] border-[1px] border-border bg-transparent focus:outline-none"
                 >
@@ -95,14 +100,14 @@ function AddProduct() {
                 </h4>
                 <select
                   name="gender"
-                  value={formData.gender}
+                  value={editProduct.gender}
                   onChange={handleChange}
                   className="text-text2 text-[13px] py-[14px] px-[22px] rounded-[8px] border-[1px] border-border bg-transparent focus:outline-none"
                 >
                   <option value="">Choose Gender</option>
                   <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="Other">Other</option>
+                  <option value="Product">Female</option>
+                  <option value="Shop">Other</option>
                 </select>
               </div>
             </div>
@@ -113,7 +118,7 @@ function AddProduct() {
               </h4>
               <select
                 name="brand"
-                value={formData.brand}
+                value={editProduct.brand}
                 onChange={handleChange}
                 className="text-text2 text-[13px] w-[100%] py-[14px] px-[22px] rounded-[8px] border-[1px] border-border bg-transparent focus:outline-none"
               >
@@ -130,7 +135,7 @@ function AddProduct() {
 
               <textarea
                 name="description"
-                value={formData.description}
+                value={editProduct.description}
                 onChange={handleChange}
                 placeholder="Description"
                 rows={10}
@@ -145,14 +150,15 @@ function AddProduct() {
         </div>
         <div className="w-[49.5%] h-[100%] bg-secondary p-[16px] border-[1px] border-border rounded-[9px] flex flex-col gap-[20px]">
           <h4 className="text-[14px] font-medium">Upload images</h4>
+
           <div className="flex justify-between w-[100%] h-[25vh] bg-pink-00">
-            {images.map((image, index) => (
+            {editImages.map((image, index) => (
               <>
                 <div
                   className="w-[32%] h-full border-[1px] border-border rounded-[8px] flex items-center"
                   key={index}
                 >
-                  <img src={image} alt="Error-Image" key={index} />
+                  <img src={image} alt="Error-Image" />
                 </div>
               </>
             ))}
@@ -176,12 +182,13 @@ function AddProduct() {
             Pictures must be in certain dimensions. Notice that the product
             shows all the details
           </h4>
+
           <div className="flex justify-between gap-[10px]">
             <div className="flex flex-col gap-[10px] w-[48%]">
               <h4 className="text-[14px] font-medium">Add size</h4>
               <select
                 name="size"
-                value={formData.size}
+                value={editProduct.size}
                 onChange={handleChange}
                 className="text-text2 text-[13px] py-[14px] px-[22px] rounded-[8px] border-[1px] border-border bg-transparent focus:outline-none"
               >
@@ -196,19 +203,20 @@ function AddProduct() {
               <input
                 type="date"
                 name="productDate"
-                value={formData.productDate}
+                value={editProduct.productDate}
                 onChange={handleChange}
                 className="text-text2 text-[13px] py-[14px] px-[22px] rounded-[8px] border-[1px] border-border bg-transparent focus:outline-none"
               />
             </div>
           </div>
+
           <div className="flex justify-between gap-[10px]">
             <div className="flex flex-col gap-[10px] w-[48%]">
               <h4 className="text-[14px] font-medium">Price</h4>
               <input
                 type="number"
                 name="price"
-                value={formData.price}
+                value={editProduct.price}
                 onChange={handleChange}
                 className="text-text2 text-[13px] py-[14px] px-[22px] rounded-[8px] border-[1px] border-border bg-transparent focus:outline-none"
               />
@@ -217,7 +225,7 @@ function AddProduct() {
               <h4 className="text-[14px] font-medium">Status</h4>
               <select
                 name="status"
-                value={formData.status}
+                value={editProduct.status}
                 onChange={handleChange}
                 className="text-text2 text-[13px] py-[14px] px-[22px] rounded-[8px] border-[1px] border-border bg-transparent focus:outline-none"
               >
@@ -228,8 +236,12 @@ function AddProduct() {
               </select>
             </div>
           </div>
-          <button className="py-[15px] px-[22px] bg-blue text-white rounded-[8px] w-fit">
-            Add Product
+
+          <button
+            className="py-[15px] px-[22px] bg-blue text-white rounded-[8px] w-fit"
+            type="submit"
+          >
+            Save Product
           </button>
         </div>
       </form>
@@ -237,4 +249,4 @@ function AddProduct() {
   );
 }
 
-export default AddProduct;
+export default EditProductCom;
