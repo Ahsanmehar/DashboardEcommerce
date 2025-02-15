@@ -34,7 +34,7 @@ function StatusCard() {
           <div className="w-[331px] h-[202px] bg-secondary border-[1px] border-border rounded-[8px] p-[16px]">
             <div className="flex items-center gap-[10px] mb-[20px]">
               <i
-                className={`text-[22px] w-[42px] h-[42px] rounded-[8px] border-[1px] border-blue text-blue flex items-center justify-center ${data.icon}`}
+                className={`text-[22px] w-[42px] h-[42px] rounded-[8px] bg-hover text-blue flex items-center justify-center ${data.icon}`}
               ></i>
               <h3 className="text-[15px]">{data.title}</h3>
             </div>

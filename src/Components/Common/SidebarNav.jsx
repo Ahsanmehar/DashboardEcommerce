@@ -22,7 +22,7 @@ function SidebarNav() {
               <h2 className="text-[15px] font-medium">Dashboard</h2>
             </NavLink>
             <NavLink
-              to={"/g"}
+              to={"/analytics"}
               className={({ isActive }) =>
                 isActive ? "is-Active" : "is-Active-hover"
               }
@@ -31,7 +31,7 @@ function SidebarNav() {
               <h2 className="text-[15px] font-medium">Analytics</h2>
             </NavLink>
             <NavLink
-              to={"/g"}
+              to={"/reports"}
               className={({ isActive }) =>
                 isActive ? "is-Active" : "is-Active-hover"
               }

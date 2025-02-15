@@ -163,8 +163,8 @@ function AddBlogCom() {
           <h4 className="text-[14px]">
             You need to add at least 2 images. Pay attention to the quality of
             the pictures you add, comply with the background color standards.
-            Pictures must be in certain dimensions. Notice that the Blog
-            shows all the details
+            Pictures must be in certain dimensions. Notice that the Blog shows
+            all the details
           </h4>
 
           <button className="py-[15px] px-[22px] bg-blue text-white rounded-[8px] w-fit">
