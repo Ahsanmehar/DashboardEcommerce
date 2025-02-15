@@ -1,3 +1,5 @@
+import CustomChart from "./CustomChart";
+
 const salesData = [
   { name: "Noah Wilson", gmail: "noah.wilson@email.com", price: "$3000" },
   { name: "Emma Jones", gmail: "emma.jones@email.com", price: "$2500" },
@@ -22,7 +24,9 @@ const salesData = [
 function OverviewSales() {
   return (
     <div className="w-[100%] h-[45vh] flex justify-between px-[28px]">
-      <div className="w-[55%] h-[100%] bg-secondary border-border border-[1px] rounded-[8px]"></div>
+      <div className="w-[55%] h-[100%] bg-secondary border-border border-[1px] rounded-[8px]">
+        <CustomChart/>
+      </div>
       <div className="w-[44%] h-[100%] bg-secondary border-border border-[1px] rounded-[8px] p-[16px] text-text1">
         <h5 className="text-[15px] mb-[28px]">Recent Sales</h5>
 

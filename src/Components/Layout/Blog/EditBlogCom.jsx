@@ -1,26 +1,33 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addblog } from "../../../ReduxToolkit/BlogSlice";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { updateblog } from "../../../ReduxToolkit/BlogSlice";
 
-function AddBlogCom() {
+function EditBlogCom() {
   let [images, setImages] = useState([]);
-  let [formData, setFormData] = useState({
+  let [blog, setblog] = useState({
     blogTitle: "",
     aurthor: "",
     category: "",
     description: "",
-    blogDate: "",
+    productDate: "",
     image: [],
   });
+
+  let editdatablog = useSelector((state) => state.blog.editdatablog);
   let dispatch = useDispatch();
+  useEffect(() => {
+    if (editdatablog) {
+      setblog(editdatablog);
+    }
+  }, [editdatablog]);
 
   function handleChange(e) {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setblog({ ...blog, [e.target.name]: e.target.value });
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(addblog(formData));
+    dispatch(updateblog(blog));
   }
 
   function handleImage(e) {
@@ -32,7 +39,7 @@ function AddBlogCom() {
       return;
     }
 
-    setFormData((predata) => ({
+    setblog((predata) => ({
       ...predata,
       image: [...predata.image, ...imagesurl],
     }));
@@ -42,7 +49,7 @@ function AddBlogCom() {
 
   return (
     <div className="w-[100%] px-[28px] my-[25px] text-text1">
-      <h1 className="text-[28px] font-medium mb-[10px]">Add Blog</h1>
+      <h1 className="text-[28px] font-medium mb-[10px]">Edit Blog</h1>
 
       <form
         className="w-[100%] h-[80vh] flex justify-between"
@@ -56,15 +63,15 @@ function AddBlogCom() {
               </h4>
               <input
                 type="text"
-                placeholder="Enter Blog Title"
+                placeholder="Enter product name"
                 name="blogTitle"
-                value={formData.blogTitle}
+                value={blog.blogTitle}
                 onChange={handleChange}
                 className="w-[100%] h-[50px] bg-transparent border-[1px] border-border px-[15px] rounded-[8px] placeholder:text-[13px] focus:border-blue focus:ring-1 focus:ring-blue outline-none"
                 required
               />
               <h5 className="text-[12px] text-text2 font-light">
-                Do not exceed 20 characters when entering the Blog name.
+                Do not exceed 20 characters when entering the product name.
               </h5>
             </div>
             <div className="flex flex-col gap-[10px]">
@@ -73,9 +80,9 @@ function AddBlogCom() {
               </h4>
               <input
                 type="text"
-                placeholder="Enter Aurthor name"
+                placeholder="Enter product name"
                 name="aurthor"
-                value={formData.aurthor}
+                value={blog.aurthor}
                 onChange={handleChange}
                 className="w-[100%] h-[50px] bg-transparent border-[1px] border-border px-[15px] rounded-[8px] placeholder:text-[13px] focus:border-blue focus:ring-1 focus:ring-blue outline-none"
                 required
@@ -89,24 +96,24 @@ function AddBlogCom() {
                 </h4>
                 <select
                   name="category"
-                  value={formData.category}
+                  value={blog.category}
                   onChange={handleChange}
                   className="text-text2 text-[13px] py-[14px] px-[22px] rounded-[8px] border-[1px] border-border bg-transparent focus:outline-none"
                 >
                   <option value="">Choose Category</option>
-                  <option value="Blog">Blog</option>
+                  <option value="Product">Product</option>
                   <option value="Shop">Shop</option>
                 </select>
               </div>
               <div className="flex flex-col gap-[10px] w-[48%]">
                 <h4 className="text-[14px] font-medium">
-                  Blog Date
+                  Product Date
                   <span className="text-red-500 text-[17px]">*</span>
                 </h4>
                 <input
                   type="date"
-                  name="blogDate"
-                  value={formData.blogDate}
+                  name="productDate"
+                  value={blog.productDate}
                   onChange={handleChange}
                   className="text-text2 text-[13px] py-[14px] px-[22px] rounded-[8px] border-[1px] border-border bg-transparent focus:outline-none"
                 />
@@ -120,7 +127,7 @@ function AddBlogCom() {
 
               <textarea
                 name="description"
-                value={formData.description}
+                value={blog.description}
                 onChange={handleChange}
                 placeholder="Description"
                 rows={10}
@@ -128,7 +135,7 @@ function AddBlogCom() {
                 className="p-[16px] bg-transparent border-[1px] border-border rounded-[8px] focus:border-blue focus:ring-1 focus:ring-blue outline-none placeholder:text-[14px] resize-none"
               ></textarea>
               <h5 className="text-[12px] text-text2 font-light">
-                Do not exceed 100 characters when entering the Blog name.
+                Do not exceed 100 characters when entering the product name.
               </h5>
             </div>
           </div>
@@ -163,12 +170,12 @@ function AddBlogCom() {
           <h4 className="text-[14px]">
             You need to add at least 2 images. Pay attention to the quality of
             the pictures you add, comply with the background color standards.
-            Pictures must be in certain dimensions. Notice that the Blog
+            Pictures must be in certain dimensions. Notice that the product
             shows all the details
           </h4>
 
           <button className="py-[15px] px-[22px] bg-blue text-white rounded-[8px] w-fit">
-            Add Blog
+            Save Blog
           </button>
         </div>
       </form>
@@ -176,4 +183,4 @@ function AddBlogCom() {
   );
 }
 
-export default AddBlogCom;
+export default EditBlogCom;
