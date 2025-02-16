@@ -10,7 +10,10 @@ export default {
         text2: "#94a3b8",
         border: "#334155",
         blue: "#2563eb",
-        hover: "#172554"
+        hover: "#172554",
+      },
+      screens: {
+        xxxl: "1400px",
       },
     },
   },

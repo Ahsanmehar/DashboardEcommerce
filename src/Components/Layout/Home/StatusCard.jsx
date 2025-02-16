@@ -29,9 +29,9 @@ function StatusCard() {
   return (
     <div className="w-[100%] px-[28px] my-[25px] text-text1">
       <h1 className="text-[28px] font-medium mb-[10px]">Dashboard</h1>
-      <div className="flex justify-between">
+      <div className="flex justify-between flex-wrap">
         {statusData.map((data) => (
-          <div className="w-[331px] h-[202px] bg-secondary border-[1px] border-border rounded-[8px] p-[16px]">
+          <div className="w-[24%] bg-secondary border-[1px] border-border rounded-[8px] p-[16px]">
             <div className="flex items-center gap-[10px] mb-[20px]">
               <i
                 className={`text-[22px] w-[42px] h-[42px] rounded-[8px] bg-hover text-blue flex items-center justify-center ${data.icon}`}

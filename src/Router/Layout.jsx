@@ -6,7 +6,7 @@ import Footer from "../Components/Common/Footer";
 function Layout() {
   return (
     <div
-      className="h-screen bg-primary flex overflow-y-auto"
+      className="h-screen bg-primary flex overflow-y-auto overflow-x-hidden"
       style={{ scrollbarWidth: "thin", scrollbarColor: "#4b5563 transparent" }}
     >
       <div>

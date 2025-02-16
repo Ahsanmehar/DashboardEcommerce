@@ -25,13 +25,13 @@ function OverviewSales() {
   return (
     <div className="w-[100%] h-[45vh] flex justify-between px-[28px]">
       <div className="w-[55%] h-[100%] bg-secondary border-border border-[1px] rounded-[8px]">
-        <CustomChart/>
+        <CustomChart />
       </div>
       <div className="w-[44%] h-[100%] bg-secondary border-border border-[1px] rounded-[8px] p-[16px] text-text1">
         <h5 className="text-[15px] mb-[28px]">Recent Sales</h5>
 
         <div
-          className="flex flex-col gap-[30px] max-h-[310px] overflow-y-auto"
+          className="flex flex-col gap-[30px] max-h-[83%] overflow-y-auto"
           style={{
             scrollbarWidth: "thin",
             scrollbarColor: "#4b5563 transparent",
