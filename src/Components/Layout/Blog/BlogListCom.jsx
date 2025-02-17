@@ -96,7 +96,7 @@ function BlogListCom() {
                           </td>
 
                           {/* Category */}
-                          <td className="p-[16px] text-center text-[15px] font-medium w-[5%]">
+                          <td className="p-[16px] text-center text-[15px] font-medium w-[5%] whitespace-nowrap">
                             {data.aurthor}
                           </td>
 

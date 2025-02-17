@@ -97,7 +97,7 @@ function ProductListCom() {
                           </td>
 
                           {/* Category */}
-                          <td className="p-[16px] text-center text-[15px] font-medium w-[15%]">
+                          <td className="p-[16px] text-center text-[15px] font-medium w-[15%] whitespace-nowrap">
                             {data.category}
                           </td>
 

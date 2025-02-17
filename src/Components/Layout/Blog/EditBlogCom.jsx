@@ -149,7 +149,12 @@ function EditBlogCom() {
                   className="w-[32%] h-full border-[1px] border-border rounded-[8px] flex items-center"
                   key={index}
                 >
-                  <img src={image} alt="Error-Image" key={index} />
+                  <img
+                    src={image}
+                    alt="Error-Image"
+                    key={index}
+                    className="w-[100%] h-[100%] object-cover"
+                  />
                 </div>
               </>
             ))}

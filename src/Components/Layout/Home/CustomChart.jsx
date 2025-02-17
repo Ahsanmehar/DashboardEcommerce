@@ -27,7 +27,7 @@ const CustomChart = () => {
   return (
     <div className="w-full h-full flex flex-col justify-center items-center pt-[28px]">
       <h3 className="text-[15px] mb-[28px] self-start px-5">Overview</h3>
-      <div className="w-full h-[90%] px-[10px] self-start mb-3">
+      <div className="w-full h-[90%] px-[10px] max-sd:px-[0px] max-sd:pr-[5px] self-start mb-3 max-sd:mb-[0px]">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data}>
             <XAxis dataKey="month" stroke="#94a3b8" className="text-[13px]" />
