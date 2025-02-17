@@ -17,6 +17,7 @@ export default {
         "max-xxl": { max: "900px" },
         "max-xl": { max: "800px" },
         "max-l": { max: "700px" },
+        "max-sd": { max: "700px" },
       },
     },
   },

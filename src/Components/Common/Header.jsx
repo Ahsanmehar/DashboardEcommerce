@@ -1,12 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { sidebarclick } from "../../ReduxToolkit/SidebarNavSlice";
-import { useEffect } from "react";
 
 function Header() {
-  let sidebarnav = useSelector((state) => state.sidebarnav);
   let dispatch = useDispatch();
-
- 
 
   return (
     <div className="w-[100%] bg-secondary flex justify-between items-center py-[12px] px-[28px] text-[#94a3b8]">
@@ -15,7 +11,7 @@ function Header() {
           className="bi bi-arrow-bar-left text-[20px] cursor-pointer w-[42px] h-[42px] hover:rounded-[8px] hover:bg-hover flex items-center justify-center"
           onClick={() => dispatch(sidebarclick())}
         ></i>
-        <form className="w-[320px] h-[40px] ">
+        <form className="w-[320px] h-[40px] max-l:hidden">
           <input
             type="text"
             placeholder="Search..."

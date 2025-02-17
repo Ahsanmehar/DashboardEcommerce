@@ -6,7 +6,7 @@ function SidebarNav() {
   let dispatch = useDispatch();
 
   return (
-    <div className="w-[240px] h-full bg-secondary fixed z-40 border-r-[1px] border-border text-text1 p-[16px] flex flex-col gap-[30px]">
+    <div className="w-[240px] h-full bg-secondary fixed top-[0] left-[0] bottom-[0] z-40 border-r-[1px] border-border text-text1 p-[16px] flex flex-col gap-[30px]">
       <div className="w-[100%] flex justify-between">
         <div className="flex gap-[10px]">
           <i className="bi bi-amd text-[18px]"></i>
