@@ -1,11 +1,11 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { sidebarclick } from "../../ReduxToolkit/SidebarNavSlice";
 
 function Header() {
   let dispatch = useDispatch();
 
   return (
-    <div className="w-[100%] bg-secondary flex justify-between items-center py-[12px] px-[28px] text-[#94a3b8]">
+    <div className="w-[100%] bg-secondary flex justify-between items-center py-[12px] px-[28px] text-[#94a3b8] max-sd:px-[10px]">
       <div className="flex items-center gap-[15px]">
         <i
           className="bi bi-arrow-bar-left text-[20px] cursor-pointer w-[42px] h-[42px] hover:rounded-[8px] hover:bg-hover flex items-center justify-center"
