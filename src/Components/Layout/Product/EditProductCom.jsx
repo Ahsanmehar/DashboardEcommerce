@@ -155,7 +155,7 @@ function EditProductCom() {
             {editImages.map((image, index) => (
               <>
                 <div
-                  className="w-[32%] h-full border-[1px] border-border rounded-[8px] flex items-center"
+                  className="w-[32%] h-full border-[1px] border-border rounded-[8px] flex items-center overflow-hidden"
                   key={index}
                 >
                   <img
@@ -166,7 +166,7 @@ function EditProductCom() {
                 </div>
               </>
             ))}
-            <label className="w-[32%] h-full border-[1px] border-blue border-dashed rounded-[8px] flex flex-col items-center justify-center cursor-pointer px-[15px]">
+            <label className="w-[32%] h-full border-[1px] border-blue border-dashed rounded-[8px] flex flex-col items-center justify-center cursor-pointer px-[15px] max-sd:px-[5px]">
               <i className="bi bi-cloud-arrow-up text-[50px] max-sd:text-[35px] text-blue"></i>
               <h4 className="text-[12px] text-text2 text-center">
                 Drop your images here or select
