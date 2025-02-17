@@ -14,7 +14,7 @@ function BlogListCom() {
       {editblog ? (
         <EditBlogCom />
       ) : (
-        <div className="px-[28px] my-[20px]">
+        <div className="px-[28px] max-sd:px-[10px] my-[20px]">
           <h1 className="text-[28px] font-medium mb-[15px] text-text1">
             Blog List
           </h1>

@@ -23,7 +23,7 @@ const salesData = [
 
 function OverviewSales() {
   return (
-    <div className="w-[100%] flex justify-between px-[28px] max-xxxl:flex-col max-xxxl:gap-[20px]">
+    <div className="w-[100%] flex justify-between px-[28px] max-sd:px-[10px] max-xxxl:flex-col max-xxxl:gap-[20px]">
       <div className="w-[55%] max-xxxl:w-[100%] max-sd:h-[300px] h-[370px] bg-secondary border-border border-[1px] rounded-[8px]">
         <CustomChart />
       </div>

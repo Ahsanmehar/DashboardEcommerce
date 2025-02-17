@@ -51,7 +51,7 @@ function EditProductCom() {
   }
 
   return (
-    <div className="w-[100%] px-[28px] my-[25px] text-text1">
+    <div className="w-[100%] px-[28px] max-sd:px-[10px] my-[25px] text-text1">
       <h1 className="text-[28px] font-medium mb-[10px]">Edit Product</h1>
 
       <form
@@ -151,7 +151,7 @@ function EditProductCom() {
         <div className="w-[49.5%] max-xxxl:w-[100%] h-[100%] bg-secondary p-[16px] border-[1px] border-border rounded-[9px] flex flex-col gap-[20px]">
           <h4 className="text-[14px] font-medium">Upload images</h4>
 
-          <div className="flex justify-between w-[100%] h-[25vh] bg-pink-00">
+          <div className="flex justify-between w-[100%] h-[25vh] max-sd:h-[21vh]">
             {editImages.map((image, index) => (
               <>
                 <div
@@ -163,7 +163,7 @@ function EditProductCom() {
               </>
             ))}
             <label className="w-[32%] h-full border-[1px] border-blue border-dashed rounded-[8px] flex flex-col items-center justify-center cursor-pointer px-[15px]">
-              <i className="bi bi-cloud-arrow-up text-[50px] text-blue"></i>
+              <i className="bi bi-cloud-arrow-up text-[50px] max-sd:text-[35px] text-blue"></i>
               <h4 className="text-[12px] text-text2 text-center">
                 Drop your images here or select
                 <span className="text-blue ml-[3px]">click to browse</span>

@@ -106,7 +106,7 @@ const products = [
 
 function TopOrders() {
   return (
-    <div className="px-[25px] my-[20px]">
+    <div className="px-[28px] max-sd:px-[10px] my-[20px]">
     <div className="w-full h-[60vh] bg-secondary border-[1px] border-border rounded-[8px] p-[16px] text-text1 flex flex-col gap-[30px]">
       <h5 className="text-[16px]">Top Orders</h5>
       

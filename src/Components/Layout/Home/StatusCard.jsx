@@ -27,7 +27,7 @@ const statusData = [
 
 function StatusCard() {
   return (
-    <div className="w-[100%] px-[28px] my-[25px] text-text1 max-sd:px-[10px]">
+    <div className="w-[100%] px-[28px] max-sd:px-[10px] my-[25px] text-text1">
       <h1 className="text-[28px] font-medium mb-[10px]">Dashboard</h1>
       <div className="flex max-xxxl:flex-wrap gap-4 max-xxxl:w-full max-xxxl:justify-between max-l:flex-col">
         {statusData.map((data, index) => (
