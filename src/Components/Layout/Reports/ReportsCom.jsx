@@ -3,8 +3,8 @@ import TopOrders from "../Home/TopOrders";
 
 function ReportsCom() {
   return (
-    <div className="w-[100%] h-[80vh]px-[28px] my-[25px] text-text1 px-[28px]">
-      <h1 className="text-[28px] font-medium mb-[18px]">Reports</h1>
+    <div className="w-[100%] my-[25px] text-text1">
+      <h1 className="text-[28px] font-medium mb-[18px] px-[28px]">Reports</h1>
       <OverviewSales />
       <TopOrders />
     </div>

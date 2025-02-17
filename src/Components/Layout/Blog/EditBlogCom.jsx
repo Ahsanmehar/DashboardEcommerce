@@ -52,10 +52,10 @@ function EditBlogCom() {
       <h1 className="text-[28px] font-medium mb-[10px]">Edit Blog</h1>
 
       <form
-        className="w-[100%] flex justify-between"
+        className="w-[100%] flex justify-between max-xxxl:flex-col max-xxxl:gap-[20px]"
         onSubmit={handleSubmit}
       >
-        <div className="w-[49.5%] h-[100%] bg-secondary p-[16px] border-[1px] border-border rounded-[9px]">
+        <div className="w-[49.5%] max-xxxl:w-[100%] h-[100%] bg-secondary p-[16px] border-[1px] border-border rounded-[9px]">
           <div className="flex flex-col gap-[15px]">
             <div className="flex flex-col gap-[10px]">
               <h4 className="text-[14px] font-medium">
@@ -140,7 +140,7 @@ function EditBlogCom() {
             </div>
           </div>
         </div>
-        <div className="w-[49.5%] h-[100%] bg-secondary p-[16px] border-[1px] border-border rounded-[9px] flex flex-col gap-[20px]">
+        <div className="w-[49.5%] max-xxxl:w-[100%] h-[100%] bg-secondary p-[16px] border-[1px] border-border rounded-[9px] flex flex-col gap-[20px]">
           <h4 className="text-[14px] font-medium">Upload images</h4>
           <div className="flex justify-between w-[100%] h-[25vh] bg-pink-00">
             {images.map((image, index) => (
@@ -153,7 +153,7 @@ function EditBlogCom() {
                 </div>
               </>
             ))}
-            <label className="w-[32%] h-full border-[1px] border-blue border-dashed rounded-[8px] flex flex-col items-center justify-center cursor-pointer">
+            <label className="w-[32%] h-full border-[1px] border-blue border-dashed rounded-[8px] flex flex-col items-center justify-center cursor-pointer px-[15px]">
               <i className="bi bi-cloud-arrow-up text-[50px] text-blue"></i>
               <h4 className="text-[12px] text-text2 text-center">
                 Drop your images here or select

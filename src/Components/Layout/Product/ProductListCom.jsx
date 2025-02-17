@@ -15,7 +15,7 @@ function ProductListCom() {
       {editproduct ? (
         <EditProductCom />
       ) : (
-        <div className="px-[25px] my-[20px]">
+        <div className="px-[28px] my-[20px]">
           <h1 className="text-[28px] font-medium mb-[15px] text-text1">
             Product List
           </h1>
@@ -26,7 +26,7 @@ function ProductListCom() {
               <>
                 <h5 className="text-[16px]">Top Products</h5>
                 <div
-                  className="overflow-y-auto raletive"
+                  className="relative w-full overflow-y-auto"
                   style={{
                     scrollbarWidth: "thin",
                     scrollbarColor: "#4b5563 transparent",
@@ -58,7 +58,7 @@ function ProductListCom() {
                     </thead>
 
                     {/* Table Body */}
-                    <tbody>
+                    <tbody className="min-w-[100px] w-full">
                       {products.map((data, index) => (
                         <tr
                           className="border-b-[1px] border-border"
@@ -70,29 +70,29 @@ function ProductListCom() {
                           </td>
 
                           {/* Product Image & Name */}
-                          <td className="py-[16px] flex items-center gap-[15px] w-[35%]">
+                          <td className="py-[16px] flex items-center gap-[15px]">
                             <img
                               src={[...new Set(data.image)][0]}
                               alt="Error-Image"
                               className="w-[57px] h-[57px] object-cover rounded-[8px]"
                             />
                             <div className="flex flex-col gap-[2px]">
-                              <h4 className="text-[15px] font-medium">
+                              <h4 className="text-[15px] font-medium whitespace-nowrap">
                                 {data.productName}
                               </h4>
-                              <h5 className="text-[15px] text-text2">
+                              <h5 className="text-[15px] text-text2 whitespace-nowrap">
                                 {data.description}
                               </h5>
                             </div>
                           </td>
 
                           {/* Price */}
-                          <td className="p-[16px] text-center text-[15px] font-medium w-[15%]">
+                          <td className="p-[16px] text-center text-[15px] font-medium w-[15%] whitespace-nowrap">
                             {`$${data.price}`}
                           </td>
 
                           {/* Status */}
-                          <td className="p-[16px] text-center text-[15px] font-medium w-[15%]">
+                          <td className="p-[16px] text-center text-[15px] font-medium w-[15%] whitespace-nowrap">
                             {data.status}
                           </td>
 

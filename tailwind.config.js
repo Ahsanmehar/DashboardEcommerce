@@ -13,7 +13,10 @@ export default {
         hover: "#172554",
       },
       screens: {
-        xxxl: "1400px",
+        "max-xxxl": { max: "1300px" },
+        "max-xxl": { max: "900px" },
+        "max-xl": { max: "800px" },
+        "max-l": { max: "700px" },
       },
     },
   },

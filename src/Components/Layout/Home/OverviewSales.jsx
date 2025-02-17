@@ -23,11 +23,11 @@ const salesData = [
 
 function OverviewSales() {
   return (
-    <div className="w-[100%] h-[45vh] flex justify-between px-[28px]">
-      <div className="w-[55%] h-[100%] bg-secondary border-border border-[1px] rounded-[8px]">
+    <div className="w-[100%] flex justify-between px-[28px] max-xxxl:flex-col max-xxxl:gap-[20px]">
+      <div className="w-[55%] max-xxxl:w-[100%] h-[370px] bg-secondary border-border border-[1px] rounded-[8px]">
         <CustomChart />
       </div>
-      <div className="w-[44%] h-[100%] bg-secondary border-border border-[1px] rounded-[8px] p-[16px] text-text1">
+      <div className="w-[44%] max-xxxl:w-[100%] h-[370px] bg-secondary border-border border-[1px] rounded-[8px] p-[16px] text-text1">
         <h5 className="text-[15px] mb-[28px]">Recent Sales</h5>
 
         <div
@@ -37,8 +37,8 @@ function OverviewSales() {
             scrollbarColor: "#4b5563 transparent",
           }}
         >
-          {salesData.map((data) => (
-            <div className="flex items-center justify-between">
+          {salesData.map((data, index) => (
+            <div className="flex items-center justify-between" key={index}>
               <div className="flex items-center gap-[15px]">
                 <img
                   src="https://plus.unsplash.com/premium_photo-1689977968861-9c91dbb16049?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8fDA%3D"

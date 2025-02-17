@@ -1,12 +1,11 @@
-import CustomChart from "../Home/CustomChart";
-
+import OverviewSales from "../Home/OverviewSales";
+import TopOrders from "../Home/TopOrders";
 function AnalyticsCom() {
   return (
-    <div className="w-[100%] h-[80vh]px-[28px] my-[25px] text-text1 px-[28px]">
-      <h1 className="text-[28px] font-medium mb-[10px]">Analytics</h1>
-      <div className="w-[100%] h-[80vh] bg-secondary p-[16px] border-[1px] border-border rounded-[9px]">
-        <CustomChart />
-      </div>
+    <div className="w-[100%] my-[25px] text-text1">
+      <h1 className="text-[28px] font-medium mb-[18px] px-[28px]">Analytics</h1>
+      <OverviewSales />
+      <TopOrders />
     </div>
   );
 }

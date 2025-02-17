@@ -1,11 +1,21 @@
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { sidebarclick } from "../../ReduxToolkit/SidebarNavSlice";
 
 function SidebarNav() {
+  let dispatch = useDispatch();
+
   return (
-    <div className="w-[15%] h-full bg-secondary fixed border-r-[1px] border-border text-text1 p-[16px] flex flex-col gap-[30px]">
-      <div className="w-[100%] flex gap-[10px]">
-        <i className="bi bi-amd text-[18px]"></i>
-        <h2 className="text-[18px]">Logoipsum</h2>
+    <div className="w-[240px] h-full bg-secondary fixed z-40 border-r-[1px] border-border text-text1 p-[16px] flex flex-col gap-[30px]">
+      <div className="w-[100%] flex justify-between">
+        <div className="flex gap-[10px]">
+          <i className="bi bi-amd text-[18px]"></i>
+          <h2 className="text-[18px]">Logoipsum</h2>
+        </div>
+        <i
+          className="bi bi-x-square cursor-pointer hidden max-xxl:block"
+          onClick={() => dispatch(sidebarclick())}
+        ></i>
       </div>
 
       <div className="w-[100%] flex flex-col gap-[15px]">

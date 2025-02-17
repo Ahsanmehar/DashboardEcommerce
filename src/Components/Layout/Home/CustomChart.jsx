@@ -25,7 +25,7 @@ const data = [
 
 const CustomChart = () => {
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center py-[28px]">
+    <div className="w-full h-full flex flex-col justify-center items-center pt-[28px]">
       <h3 className="text-[15px] mb-[28px] self-start px-5">Overview</h3>
       <div className="w-full h-[90%] px-5 self-start mb-3">
         <ResponsiveContainer width="100%" height="100%">

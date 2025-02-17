@@ -29,16 +29,18 @@ function StatusCard() {
   return (
     <div className="w-[100%] px-[28px] my-[25px] text-text1">
       <h1 className="text-[28px] font-medium mb-[10px]">Dashboard</h1>
-      <div className="flex justify-between flex-wrap">
-        {statusData.map((data) => (
-          <div className="w-[24%] bg-secondary border-[1px] border-border rounded-[8px] p-[16px]">
+      <div className="flex max-xxxl:flex-wrap gap-4 max-xxxl:w-full max-xxxl:justify-between max-l:flex-col">
+        {statusData.map((data, index) => (
+          <div
+            className="w-[24%] max-xxxl:w-[48%] max-l:w-[100%] max-lg:w-full bg-secondary border-[1px] border-border rounded-[8px] p-[16px]"
+            key={index}
+          >
             <div className="flex items-center gap-[10px] mb-[20px]">
               <i
                 className={`text-[22px] w-[42px] h-[42px] rounded-[8px] bg-hover text-blue flex items-center justify-center ${data.icon}`}
               ></i>
               <h3 className="text-[15px]">{data.title}</h3>
             </div>
-
             <div className="p-[16px] bg-primary rounded-[8px]">
               <h1 className="text-[28px] font-semibold mb-[3px]">
                 {data.numbers}
